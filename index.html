@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominican Sushi Power</title>
+
+
+    <style>
+        html {
+            background-image: url('fondosushicomplete.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            position: relative;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
+            z-index: -1; /* Colocar detrás de todo el contenido */
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        p {
+            margin: 0 auto;
+            width: 70%;
+            line-height: 1.6;
+            text-align: justify;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Estilos para la tabla */
+        .tabla-sushi {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            position: relative;
+            z-index: 1; /* Colocar encima del fondo semi-transparente */
+        }
+
+        .tabla-sushi th, .tabla-sushi td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .tabla-sushi th {
+            background-color: #000000;
+        }
+
+        /* Efectos y animaciones */
+        /* Transformación 2D */
+        .transformacion-2d {
+            transition: transform 0.3s ease;
+        }
+
+        .transformacion-2d:hover {
+            transform: scale(1.1);
+        }
+
+        /* Transformación 3D */
+        .transformacion-3d {
+            transition: transform 0.3s ease;
+        }
+
+        .transformacion-3d:hover {
+            transform: rotateY(180deg);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombreado al pasar el puntero */
+        }
+
+        .transformacion-3d:hover::after {
+            content: "AL 2X1 HOY, APROVECHA"; /* Texto que se muestra al pasar el puntero */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Transición */
+        .transicion {
+            transition: background-color 0.3s ease;
+        }
+
+        .transicion:hover {
+            background-color: #ffcc00;
+        }
+
+        /* Animación */
+        .animacion {
+            animation: mover 2s infinite;
+        }
+
+        @keyframes mover {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Paginación */
+        /* Columnas */
+        .columnas {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1; /* Colocar encima del fondo semi-transparente */
+        }
+
+        .columna {
+            width: 30%;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Para que la imagen no se desborde */
+            background-position: center; /* Centra la imagen */
+            transition: border-radius 0.3s;
+        }
+
+        .columna:hover {
+            border-radius: 50%; /* Hace la imagen redonda al pasar el puntero */
+        }
+
+        .columna::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('imagen-transparente.jpg'); /* Reemplaza 'imagen-transparente.jpg' con la URL de tu imagen */
+            background-size: cover;
+            opacity: 0.8; /* Ajusta la opacidad de la imagen */
+            z-index: -1; /* Colocar detrás del contenido */
+        }
+
+        /* Interfaces de usuarios */
+        .interface {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.5); /* Color de fondo semi-transparente */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: rgba(255, 255, 255, 0.8); /* Color de texto ligeramente transparente */
+            transition: transform 0.3s;
+        }
+
+        .columna:hover .interface {
+            transform: translateZ(50px);
+        }
+
+        /* Transición de letras */
+        .interface p {
+            transition: transform 0.3s;
+        }
+
+        .columna:hover .interface p {
+            transform: translateY(-100%); /* Subir las letras al pasar el puntero */
+        }
+
+        .contacto i {
+            margin-right: 10px;
+        }
+
+        .contacto p {
+            margin: 5px 0; /* Ajustar el margen superior e inferior */
+        }
+
+        .contacto{
+            background-color: black;
+        }
+
+
+        /* Estilos para el gif en la esquina superior izquierda */
+        .gif-esquina-izquierda {
+            position: fixed;
+            top: 20px;
+            left: 0.5px;
+            z-index: 9999; /* Asegurar que esté encima de todo */
+            width: 200px; /* Ancho del gif */
+            height: auto; /* Altura ajustada automáticamente */
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Dominican Sushi Power</h1>
+    <p>Sushi rico, sabroso y en su versión DOMINICANA. ¡Ven y disfruta de los mejores sabores del Caribe fusionados con la tradición japonesa!</p>
+
+    <!-- Tabla de sushis -->
+    <table class="tabla-sushi">
+        <thead>
+            <tr>
+                <th>Sushi</th>
+                <th>Descripción</th>
+                <th>Precio (RD$)</th>
+                <th>Salsa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="transformacion-2d transicion">
+                <td>Kamaron que se duerme</td>
+                <td>Sushi enrollado con camarón fresco y vegetales, acompañado de arroz y nori.</td>
+                <td>650</td>
+                <td>Soja dulce</td>
+            </tr>
+            <tr class="transformacion-3d animacion">
+                <td>Healthly sushi</td>
+                <td>Delicioso sushi vegetariano con aguacate, pepino y zanahoria.</td>
+                <td>400</td>
+                <td>Wasabi</td>
+            </tr>
+            <tr class="transformacion-2d transicion">
+                <td>Teriyaki salmón</td>
+                <td>Sushi de salmón fresco marinado en nuestra mezcla especial de salsa teriyaki.</td>
+                <td>550</td>
+                <td>Salsa teriyaki</td>
+            </tr>
+            <tr class="transformacion-3d animacion">
+                <td>Pio Pio Roll</td>
+                <td>Pollo y puerro por dentro, empanizado super crunchy.</td>
+                <td>550</td>
+                <td>Salsa de anguila</td>
+            </tr>
+            <tr class="transformacion-2d transicion">
+                <td>Mr. Miyagui</td>
+                <td>Spicy king crab.</td>
+                <td>650</td>
+                <td>Anguila y miel</td>
+            </tr>
+            <tr class="transformacion-3d animacion">
+                <td>Omaiga Roll</td>
+                <td>Rollo sin arroz envuelto en plátano maduro, salmón, cream cheese, empanizado super crunchy.</td>
+                <td>495</td>
+                <td>Teriyaki</td>
+            </tr>
+            <tr class="transformacion-2d transicion">
+                <td>Aplatanao Roll</td>
+                <td>Plátano empanizado, cream cheese y puerro.</td>
+                <td>455</td>
+                <td>Soja agridulce</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Paginación -->
+    <div class="columnas">
+        <div class="columna" style="background-image: url('kikiriki\ roll.jpg');">
+            <div class="interface">
+                <h2>Kikiriki Roll</h2>
+                <p>OFERTA  30% DESCUENTO</p>
+            </div>
+        </div>
+        <div class="columna" style="background-image: url('veggie\ sushi.jpg');">
+            <div class="interface">
+                <h2>Tempura Veggie</h2>
+                <p>OFERTA  30% DESCUENTO</p>
+            </div>
+        </div>
+        <div class="columna" style="background-image: url('dominicano.jpeg');">
+            <div class="interface">
+                <h2>Dominican Roll</h2>
+                <p>OFERTA  30% DESCUENTO</p>
+            </div>
+        </div>
+    </div>
+
+<!-- Información de contacto -->
+<div class="contacto">
+    <i class="fas fa-phone"></i> Teléfono: 809-999-9999 
+    <i class="fas fa-map-marker-alt"></i> Ubicación: Bella Vista II, C/Estela, Plaza Finaris 
+    <i class="fas fa-envelope"></i> Correo: dominicansuship@gmail.com
+</div>
+
+
+
+ <!-- Gif en la esquina superior izquierda -->
+ <img src="sushi acostado.gif" alt="Gif" class="gif-esquina-izquierda">
+
+</body>
+</html>
